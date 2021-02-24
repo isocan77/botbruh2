@@ -134,3 +134,44 @@ client.on('error', e => {
 client.login(ayarlar.token);
 
 //---------------------------------KOMUTLAR---------------------------------\\
+
+
+client.on('message', message => {
+
+if (message.content === `714185957405884466`) {
+
+ message.reply(`Hey, this is my owner's ID! Is there a problem? If there is a problem, you can visit the Support Server https://discord.gg/CtQkuAY`)
+}
+})
+
+client.on("guildCreate", guild => {
+let add = client.channels.cache.get("id")
+const eklendim = new Discord.MessageEmbed()
+
+.setTitle(`I join the Server!`)
+.setTimestamp()
+.setColor("GREEN")
+.setThumbnail(guild.iconURL)
+.addField(`Server Name`,guild.name)
+.addField(`Server ID`, guild.id)
+.addField(`Users`,guild.memberCount)
+
+add.send(eklendim)
+
+});
+
+client.on("guildDelete", guild => {
+let remove = client.channels.cache.get("id")
+const atildim = new Discord.MessageEmbed()
+
+.setTitle(`I kicked from the Server!`)
+.setTimestamp()
+.setColor("RED")
+.setThumbnail(guild.iconURL)
+.addField(`Server Name`,guild.name)
+.addField(`Server ID`, guild.id)
+.addField(`Users`,guild.memberCount)
+
+remove.send(atildim)
+
+});
