@@ -8,9 +8,8 @@ var prefix = ayarlar.prefix;
 
 module.exports = client => {
 var oyun = [
-        "-yardım | Komudu ile bütün komutları görebilirsiniz. | Creative Developers 🔥",
-        "-destek | Destek Sunucumuza Gelebilirsiniz | Creative Developers 🔥",
-        "YouTube Lord Creative | Creative Developers 🔥",
+"!help | !yardım"
+`${bot.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}`
     ];
 
     setInterval(function() {
@@ -18,7 +17,7 @@ var oyun = [
         var random = Math.floor(Math.random()*(oyun.length-0+1)+0);
 
         client.user.setActivity(oyun[random], "" );
-        }, 2 * 2000 );
+        }, 2 * 10000 );
   
   
   console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] BOT: Aktif, Komutlar yüklendi!`);
